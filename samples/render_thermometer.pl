@@ -15,6 +15,7 @@ my $result = GD::Graph::Thermometer->new({
                   title => 'Funding our League for the Year ($)',
                   width => '100',
                  height => '200',
+            transparent => '1',
 #       background_color => '',
 #             text_color => $blue,
 #             text_color => [0,0,255],

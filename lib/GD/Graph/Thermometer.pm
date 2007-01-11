@@ -10,7 +10,7 @@ use Data::Dumper;
 use constant PI => 3.14;
 
 use vars qw($VERSION);
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 my $cgi = CGI->new();
 
@@ -57,6 +57,9 @@ sub new {
   $image->filledRectangle( 0, 0, $args->{'width'}, $args->{'height'}, $colors->{'background_color'} );
 
   # $image->rectangle($x1,$y1,$x2,$y2,$color)
+  if($args->{'transparent'} == '1'){
+    $image->transparent($colors->{'background_color'});
+  }
   $image->rectangle(($args->{'width'} * .16),($args->{'height'} * .04),($args->{'width'} * .32),($args->{'height'} * .85),$colors->{'outline_color'});
 
   # $image->filledEllipse($cx,$cy,$width,$height,$color)
@@ -245,6 +248,7 @@ This document describes GD::Graph::Thermometer version 0.0.1
                       title => 'Funding the League for the Year ($)',
                       width => '100',
                      height => '200',
+                transparent => '1',
            background_color => [ r, g, b ],
                  text_color => [ r, g, b ],
               outline_color => [ r, g, b ],
@@ -283,11 +287,14 @@ hash given to the constructor.  If title is not defined a
 warning will be thrown, but the graph will still be generated.  
 
 The colors for the background, text, outline and mercury
-will default to white, black, black and red respectively, if
-not otherwise defined in the constructor.  If defined in the
-constructor, they should be defined as an anonymous array of
-three values ( => [ r, g, b ],), range 0 - 255, suitable for
-feeding to the GD::Image->colorAllocate() method.
+will default to white, black, black and red respectively,
+if not otherwise defined in the constructor.  If defined in
+the constructor, they should be defined as an anonymous array
+of three values ( => [ r, g, b ],), range 0 - 255, suitable
+for feeding to the GD::Image->colorAllocate() method.  If the
+transparent key is set to '1', any area of the image set to
+either the default or a custom background color will render
+as transparent for inclusion on a web page.
 
 =head1 DIAGNOSTICS
 

@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                GD-Graph-Thermometer
-version:             0.02
+version:             0.03
 abstract:            Generate progress graph on the fly
 license:             ~
 generated_by:        ExtUtils::MakeMaker version 6.31

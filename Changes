@@ -1,5 +1,9 @@
 Revision history for GD-Graph-Thermometer
 
+0.03   Thu Jan 11 02:20:09 2007
+       added ability to generate graph 
+       with transparent background.
+
 0.02   Thu Jan 4 00:41:05 2007
        changes style of version numbers
        added code to render result image directly 
