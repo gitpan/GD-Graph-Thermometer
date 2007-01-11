@@ -10,7 +10,7 @@ use Data::Dumper;
 use constant PI => 3.14;
 
 use vars qw($VERSION);
-$VERSION = '0.03';
+$VERSION = '0.04';
 
 my $cgi = CGI->new();
 
