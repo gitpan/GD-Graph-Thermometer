@@ -1,9 +1,19 @@
 #!/usr/bin/perl -w
+# use Test::More tests => 1;
+use Test::More;
 
-if (!require Test::Perl::Critic) {
-    Test::More::plan(
-        skip_all => "Test::Perl::Critic required for testing PBP compliance"
-    );
+# SKIP:
+# {
+# 
+#   eval 'use Test::Perl::Critic';
+#   skip('because Test::Perl::Critic required for these tests.',1) if $@;
+#   Test::Perl::Critic::all_critic_ok();
+# 
+# }
+
+eval "use Test::Perl::Critic";
+if ( $@ ) {
+    plan skip_all => "because Test::Perl::Critic required for these tests";
+} else {
+    all_critic_ok();
 }
-
-Test::Perl::Critic::all_critic_ok();

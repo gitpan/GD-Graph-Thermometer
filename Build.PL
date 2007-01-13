@@ -8,8 +8,11 @@ my $builder = Module::Build->new(
     dist_author         => 'Hugh Esco <hesco@campaignfoundations.com>',
     dist_version_from   => 'lib/GD/Graph/Thermometer.pm',
     requires => {
-        'Test::More' => 0,
-        'version'    => 0,
+          'Test::More' => 0,
+             'version' => 0,
+                  'GD' => 0,
+     'GD::Text::Align' => 0,
+# 'Test::Perl::Critic' => 0,
     },
     add_to_cleanup      => [ 'GD-Graph-Thermometer-*' ],
 );
